@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AANGAN — Brand Identity Kit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   AANGAN — Brand Identity Kit
+   Minimal premium earth-tone brand book
+   Page: 720px × 1020px (Creative Flow)
+   ============================================================ */
+
+@page {
+    size: 720px 1020px;
+    margin: 0;
+}
+
+:root {
+    --c-bg:        #FAF7F2;   /* Cream */
+    --c-surface:   #F2EDE4;   /* Lighter beige */
+    --c-card:      #EFE9DC;   /* Warmer beige */
+    --c-stripe:    #F5F0E6;   /* Subtle stripe */
+    --c-text:      #1A1614;   /* Warm near-black */
+    --c-text-soft: #6E6258;   /* Warm gray */
+    --c-border:    #C9BBA3;   /* Sandstone */
+    --c-accent:    #8B5A3C;   /* Terracotta clay */
+    --c-olive:     #6B7A4F;   /* Olive */
+    --c-dark:      #2D2620;   /* Deep brown */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 720px;
+    background: var(--c-bg);
+    color: var(--c-text);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+@media screen {
+    html {
+        height: auto;
+        display: flex;
+        justify-content: center;
+        background: #222;
+    }
+    body {
+        transform-origin: top center;
+        margin: 20px auto;
+        box-shadow: 0 8px 40px rgba(0,0,0,0.3);
+    }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Cover Page — fixed height, standalone
+   ───────────────────────────────────────────────────────────── */
+.cover {
+    width: 720px;
+    height: 1020px;
+    box-sizing: border-box;
+    break-after: page;
+    overflow: hidden;
+    position: relative;
+    background: var(--c-bg);
+    padding: 60px 70px 70px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cover-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--c-dark);
+}
+
+.cover-edition {
+    position: absolute;
+    top: 18px;
+    left: 70px;
+    right: 70px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    color: var(--c-text-soft);
+    text-transform: uppercase;
+}
+
+.cover-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 156px;
+    line-height: 1;
+    color: var(--c-text);
+    margin: 0 0 18px 0;
+    letter-spacing: -0.04em;
+}
+
+.cover-rule {
+    width: 76px;
+    height: 2px;
+    background: var(--c-accent);
+    margin: 0 0 32px 0;
+}
+
+.cover-tagline {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 38px;
+    color: var(--c-accent);
+    margin: 0 0 24px 0;
+    letter-spacing: -0.01em;
+}
+
+.cover-subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--c-text);
+    letter-spacing: 0.04em;
+    margin: 0 0 60px 0;
+}
+
+.cover-meta {
+    display: flex;
+    gap: 50px;
+    margin-top: auto;
+    padding-top: 40px;
+    border-top: 1px solid var(--c-border);
+}
+
+.cover-meta-item {
+    flex: 1;
+}
+
+.cover-meta-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: var(--c-text-soft);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.cover-meta-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--c-text);
+    line-height: 1.4;
+}
+
+.cover-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    background: var(--c-accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Body — flowing content
+   ───────────────────────────────────────────────────────────── */
+.main-content {
+    padding: 60px 70px 40px 70px;
+}
+
+.chapter-header {
+    break-after: avoid;
+    break-inside: avoid;
+    margin-top: 28px;
+    margin-bottom: 24px;
+}
+.chapter-header:first-child {
+    margin-top: 0;
+}
+
+.section-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--c-accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 32px;
+    color: var(--c-text);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin: 0 0 10px 0;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background: var(--c-border);
+    margin: 0 0 18px 0;
+}
+
+.body-text {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--c-text);
+    margin: 0 0 14px 0;
+}
+
+.body-text strong {
+    font-weight: 700;
+    color: var(--c-text);
+}
+
+.body-text em {
+    font-style: italic;
+    color: var(--c-accent);
+}
+
+.subsection {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--c-accent);
+    margin: 24px 0 8px 0;
+    break-after: avoid;
+}
+
+.card {
+    break-inside: avoid;
+    margin-bottom: 14px;
+    padding: 20px 24px;
+    background: var(--c-card);
+    border-left: 3px solid var(--c-accent);
+    border-radius: 2px;
+}
+
+.card-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--c-accent);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.card-body {
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--c-text);
+    margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Logo Concept — large wordmark display
+   ───────────────────────────────────────────────────────────── */
+.logo-display {
+    break-inside: avoid;
+    background: var(--c-card);
+    padding: 70px 50px 50px 50px;
+    margin: 0 0 14px 0;
+    text-align: center;
+    border: 1px solid var(--c-border);
+}
+
+.logo-wordmark-large {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 110px;
+    line-height: 1;
+    color: var(--c-text);
+    margin: 0;
+    letter-spacing: -0.04em;
+}
+
+.logo-wordmark-large .period {
+    color: var(--c-accent);
+}
+
+.logo-caption {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: var(--c-text-soft);
+    text-transform: uppercase;
+    margin-top: 28px;
+}
+
+.logo-variants {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.logo-variant-card {
+    break-inside: avoid;
+    background: var(--c-card);
+    padding: 28px 16px;
+    text-align: center;
+    border: 1px solid var(--c-border);
+}
+
+.logo-variant-card.dark {
+    background: var(--c-dark);
+}
+
+.logo-variant-card.accent {
+    background: var(--c-accent);
+}
+
+.logo-variant-wordmark {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 38px;
+    line-height: 1;
+    color: var(--c-text);
+    margin: 0 0 14px 0;
+    letter-spacing: -0.04em;
+}
+
+.logo-variant-card.dark .logo-variant-wordmark {
+    color: var(--c-bg);
+}
+
+.logo-variant-card.accent .logo-variant-wordmark {
+    color: var(--c-bg);
+}
+
+.logo-variant-card.dark .logo-variant-wordmark .period,
+.logo-variant-card.accent .logo-variant-wordmark .period {
+    color: var(--c-bg);
+    opacity: 0.7;
+}
+
+.logo-variant-label {
+    font-size: 8.5px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    color: var(--c-text-soft);
+    text-transform: uppercase;
+}
+
+.logo-variant-card.dark .logo-variant-label,
+.logo-variant-card.accent .logo-variant-label {
+    color: rgba(250, 247, 242, 0.7);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Color Palette — large swatches
+   ───────────────────────────────────────────────────────────── */
+.palette-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.swatch {
+    break-inside: avoid;
+    border: 1px solid var(--c-border);
+    background: white;
+    overflow: hidden;
+}
+
+.swatch-color {
+    height: 110px;
+    width: 100%;
+}
+
+.swatch-info {
+    padding: 14px 18px;
+    background: var(--c-bg);
+}
+
+.swatch-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--c-text);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.01em;
+}
+
+.swatch-hex {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    color: var(--c-accent);
+    letter-spacing: 0.06em;
+    margin: 0 0 6px 0;
+}
+
+.swatch-use {
+    font-size: 10.5px;
+    color: var(--c-text-soft);
+    line-height: 1.45;
+    margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Typography System
+   ───────────────────────────────────────────────────────────── */
+.type-spec {
+    break-inside: avoid;
+    background: var(--c-card);
+    padding: 28px 32px;
+    margin-bottom: 14px;
+    border-left: 3px solid var(--c-accent);
+}
+
+.type-spec-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--c-accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.type-display-sample {
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    color: var(--c-text);
+    margin: 0 0 6px 0;
+    letter-spacing: -0.03em;
+}
+
+.type-body-sample {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--c-text);
+    margin: 0 0 8px 0;
+}
+
+.type-spec-meta {
+    font-size: 11px;
+    color: var(--c-text-soft);
+    line-height: 1.55;
+    margin: 8px 0 0 0;
+}
+
+.type-spec-meta strong {
+    color: var(--c-text);
+    font-weight: 700;
+}
+
+.type-scale-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+    font-size: 11px;
+}
+
+.type-scale-table th,
+.type-scale-table td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--c-border);
+}
+
+.type-scale-table th {
+    background: var(--c-dark);
+    color: white;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.type-scale-table td {
+    color: var(--c-text);
+}
+
+.type-scale-table tr:nth-child(even) td {
+    background: var(--c-stripe);
+}
+
+.type-scale-table .role {
+    font-weight: 700;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tagline & Voice
+   ───────────────────────────────────────────────────────────── */
+.tagline-display {
+    break-inside: avoid;
+    background: var(--c-dark);
+    color: var(--c-bg);
+    padding: 60px 50px;
+    text-align: center;
+    margin-bottom: 14px;
+}
+
+.tagline-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 56px;
+    line-height: 1.1;
+    color: var(--c-bg);
+    margin: 0 0 14px 0;
+    letter-spacing: -0.02em;
+}
+
+.tagline-period {
+    color: var(--c-accent);
+    font-style: normal;
+}
+
+.tagline-meta {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: rgba(250, 247, 242, 0.6);
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.voice-rules {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.voice-rule {
+    break-inside: avoid;
+    background: var(--c-card);
+    padding: 20px 22px;
+    border-top: 2px solid var(--c-accent);
+}
+
+.voice-rule-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--c-accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.voice-rule-body {
+    font-size: 12px;
+    color: var(--c-text);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Packaging Concept — visual layout
+   ───────────────────────────────────────────────────────────── */
+.packaging-illustration {
+    break-inside: avoid;
+    background: var(--c-card);
+    padding: 36px 40px;
+    margin-bottom: 14px;
+    border: 1px solid var(--c-border);
+}
+
+.mocker {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.mocker-item {
+    text-align: center;
+}
+
+.mocker-visual {
+    height: 140px;
+    background: var(--c-bg);
+    border: 1px dashed var(--c-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 22px;
+    color: var(--c-text);
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.mocker-mailer .mocker-visual::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: var(--c-card);
+    border: 1px solid var(--c-border);
+    z-index: 0;
+}
+
+.mocker-mailer .mocker-visual::after {
+    content: 'aangan.';
+    position: relative;
+    z-index: 1;
+}
+
+.mocker-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--c-text-soft);
+    text-transform: uppercase;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Applied Examples — product mockups
+   ───────────────────────────────────────────────────────────── */
+.applied-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 14px;
+}
+
+.applied-card {
+    break-inside: avoid;
+    border: 1px solid var(--c-border);
+    background: var(--c-bg);
+    overflow: hidden;
+}
+
+.applied-visual {
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.applied-visual.cream { background: var(--c-bg); }
+.applied-visual.warm-black { background: var(--c-text); }
+.applied-visual.terracotta { background: var(--c-accent); }
+.applied-visual.olive { background: var(--c-olive); }
+
+.applied-visual .mock-label {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 24px;
+    color: var(--c-text);
+    background: rgba(250, 247, 242, 0.95);
+    padding: 4px 14px;
+    border-radius: 2px;
+}
+
+.applied-visual.warm-black .mock-label,
+.applied-visual.terracotta .mock-label,
+.applied-visual.olive .mock-label {
+    color: var(--c-text);
+    background: rgba(250, 247, 242, 0.95);
+}
+
+.applied-info {
+    padding: 14px 18px;
+    background: var(--c-bg);
+    border-top: 1px solid var(--c-border);
+}
+
+.applied-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--c-text);
+    margin: 0 0 4px 0;
+}
+
+.applied-meta {
+    font-size: 10.5px;
+    color: var(--c-text-soft);
+    margin: 0;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Closing / Ending page — fixed height
+   ───────────────────────────────────────────────────────────── */
+.ending {
+    width: 720px;
+    height: 1020px;
+    box-sizing: border-box;
+    break-before: page;
+    overflow: hidden;
+    position: relative;
+    background: var(--c-dark);
+    color: var(--c-bg);
+    padding: 100px 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.ending-top-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: var(--c-accent);
+}
+
+.ending-section-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    color: var(--c-accent);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.ending-big-text {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 64px;
+    line-height: 1.1;
+    color: var(--c-bg);
+    margin: 0 0 30px 0;
+    letter-spacing: -0.02em;
+}
+
+.ending-big-text .period {
+    color: var(--c-accent);
+    font-style: normal;
+}
+
+.ending-body {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(250, 247, 242, 0.78);
+    max-width: 460px;
+    margin: 0 0 50px 0;
+}
+
+.ending-meta {
+    display: flex;
+    gap: 50px;
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(250, 247, 242, 0.18);
+}
+
+.ending-meta-item {
+    flex: 1;
+}
+
+.ending-meta-label {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    color: rgba(250, 247, 242, 0.5);
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.ending-meta-value {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--c-bg);
+    line-height: 1.4;
+}
+
+.ending-bottom-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 28px;
+    background: var(--c-accent);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 70px;
+    box-sizing: border-box;
+    color: white;
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER PAGE
+     ============================================================ -->
+<div class="cover">
+    <div class="cover-top-bar"></div>
+    <div class="cover-edition">
+        <span>AANGAN / Brand Identity Kit / V1.0</span>
+        <span>2026</span>
+    </div>
+
+    <h1 class="cover-wordmark">aangan<span style="color: var(--c-accent);">.</span></h1>
+    <div class="cover-rule"></div>
+    <p class="cover-tagline">Wear the Courtyard.</p>
+    <p class="cover-subtitle">Brand Identity Kit — Pakistan / 2026</p>
+
+    <div class="cover-meta">
+        <div class="cover-meta-item">
+            <div class="cover-meta-label">Brand</div>
+            <div class="cover-meta-value">AANGAN<br>Everyday apparel & accessories</div>
+        </div>
+        <div class="cover-meta-item">
+            <div class="cover-meta-label">Identity</div>
+            <div class="cover-meta-value">Minimal premium<br>Earth-tone palette</div>
+        </div>
+        <div class="cover-meta-item">
+            <div class="cover-meta-label">Document</div>
+            <div class="cover-meta-value">Logo · Color · Type<br>Voice · Packaging</div>
+        </div>
+    </div>
+
+    <div class="cover-bottom-bar">
+        <span>aangan.pk</span>
+        <span>Internal — Founder Copy</span>
+    </div>
+</div>
+
+<!-- ============================================================
+     BODY CONTENT — flowing
+     ============================================================ -->
+<div class="main-content">
+
+    <!-- ─── 01 — Brand Foundation ─────────────────────────────── -->
+    <div class="chapter-header">
+        <div class="section-tag">01 — Foundation</div>
+        <h2 class="section-title">The Courtyard, Worn.</h2>
+        <div class="divider"></div>
+    </div>
+
+    <p class="body-text">
+        AANGAN is a minimal-premium everyday apparel brand launching in Lahore, Pakistan in 2026. The word <em>aangan</em> means <strong>inner courtyard</strong> in Urdu — the open-to-sky heart of a Pakistani home where family gathers, where children learn the names of stars, where a household's identity is quietly formed across generations. The brand takes this exact emotional architecture and applies it to clothing: not costumes for public display, but the personal, lived-in layer the wearer returns to day after day.
+    </p>
+    <p class="body-text">
+        The visual identity is intentionally restrained — a lowercase serif wordmark, a tight five-color earth-tone palette, and disciplined typography. In a Pakistani market saturated with logo-heavy streetwear (LOCAL, Breakout) on one end and ethnic-illustration premium brands (Khaadi, Sapphire) on the other, AANGAN occupies the opposite pole: <strong>quiet, typography-led, palette-led</strong>. The identity is built to age well — typography does not go out of style the way seasonal illustrations do, and a tight palette forces discipline across every touchpoint from product tag to Instagram grid.
+    </p>
+
+    <div class="card">
+        <div class="card-title">Four brand values</div>
+        <p class="card-body">
+            <strong>Craft</strong> — measured, not marketed. GSM disclosed on every product page. <strong>Comfort</strong> — relaxed fits that earn a permanent place in the rotation. <strong>Quiet Confidence</strong> — no loud logos, no all-over graphics, no neon. <strong>Cultural Roots</strong> — earth tones referencing Pakistani soil, brick, and traditional textile palettes without crossing into costume-y ethnic territory.
+        </p>
+    </div>
+
+    <!-- ─── 02 — Logo Concept ─────────────────────────────────── -->
+    <div class="chapter-header">
+        <div class="section-tag">02 — Logo</div>
+        <h2 class="section-title">The Wordmark.</h2>
+        <div class="divider"></div>
+    </div>
+
+    <p class="body-text">
+        The primary logo is a lowercase serif wordmark — <strong>aangan<span style="color: var(--c-accent);">.</span></strong> — with a terminal period as a restraint signal. The period is a small typographic gesture that says "this brand is finished thinking about itself." There is no icon, no symbol, no monogram. The wordmark carries the entire brand mark. This is a deliberate UNIQLO / Khaadi-archive move, not a Levi's / Nike move. The wordmark is set in <strong>Playfair Display Bold</strong> (display Latin) or <strong>Noto Serif SC Bold</strong> (CJK + Urdu fallback), at scales ranging from 8pt (hem label) to 156pt (cover).
+    </p>
+
+    <div class="logo-display">
+        <h3 class="logo-wordmark-large">aangan<span class="period">.</span></h3>
+        <p class="logo-caption">Primary wordmark / Playfair Display Black / 110pt</p>
+    </div>
+
+    <p class="body-text">
+        Three lockup variants cover every application context. The <strong>primary lockup</strong> places the wordmark on cream against warm-black text — for storefront, packaging, email, and most marketing surfaces. The <strong>inverted lockup</strong> places the wordmark in cream against deep warm brown — for dark-mode UI, hang tags, and the ending page of this document. The <strong>accent lockup</strong> places the wordmark in cream against terracotta clay — used sparingly for seasonal campaigns, Eid capsules, and limited edition drops. No fourth variant is permitted in year 1.
+    </p>
+
+    <div class="logo-variants">
+        <div class="logo-variant-card">
+            <h4 class="logo-variant-wordmark">aangan<span class="period" style="color: var(--c-accent);">.</span></h4>
+            <p class="logo-variant-label">Primary</p>
+        </div>
+        <div class="logo-variant-card dark">
+            <h4 class="logo-variant-wordmark">aangan<span class="period">.</span></h4>
+            <p class="logo-variant-label">Inverted</p>
+        </div>
+        <div class="logo-variant-card accent">
+            <h4 class="logo-variant-wordmark">aangan<span class="period">.</span></h4>
+            <p class="logo-variant-label">Accent</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Logo clear space & minimum size</div>
+        <p class="card-body">
+            Minimum clear space around the wordmark equals the height of the lowercase <em>a</em>. Minimum reproduction size is 24pt for print and 32px for screen. Below these thresholds the wordmark loses its serif details and should be replaced by a single initial <em>a.</em> in matching weight.
+        </p>
+    </div>
+
+    <!-- ─── 03 — Color Palette ────────────────────────────────── -->
+    <div class="chapter-header">
+        <div class="section-tag">03 — Color</div>
+        <h2 class="section-title">Five Earth Tones.</h2>
+        <div class="divider"></div>
+    </div>
+
+    <p class="body-text">
+        The AANGAN palette is exactly five colors — no sixth color is permitted in year 1. The palette references Pakistani soil, brick architecture, and traditional textile palettes without crossing into costume-y "ethnic" territory. Cream dominates every surface (60%+ of brand real estate). Warm black handles text and dark surfaces. Terracotta is the single accent — used for rules, labels, and one product colorway per category. Olive and sandstone serve as secondary product colorways and surface neutrals.
+    </p>
+
+    <div class="palette-grid">
+        <div class="swatch">
+            <div class="swatch-color" style="background: #FAF7F2;"></div>
+            <div class="swatch-info">
+                <p class="swatch-name">Cream</p>
+                <p class="swatch-hex">#FAF7F2</p>
+                <p class="swatch-use">Primary background, paper, packaging base. 60%+ of brand surface area.</p>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #1A1614;"></div>
+            <div class="swatch-info">
+                <p class="swatch-name">Warm Black</p>
+                <p class="swatch-hex">#1A1614</p>
+                <p class="swatch-use">Primary text, dark UI surfaces, ending pages. Brown undertone — never pure black.</p>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #8B5A3C;"></div>
+            <div class="swatch-info">
+                <p class="swatch-name">Terracotta Clay</p>
+                <p class="swatch-hex">#8B5A3C</p>
+                <p class="swatch-use">Single accent. Rules, labels, period in wordmark, hero product colorway per category.</p>
+            </div>
+        </div>
+        <div class="swatch">
+            <div class="swatch-color" style="background: #6B7A4F;"></div>
+            <div class="swatch-info">
+                <p class="swatch-name">Olive</p>
+                <p class="swatch-hex">#6B7A4F</p>
+                <p class="swatch-use">Secondary product colorway. Chart fills. Sustainable / earthy product cues.</p>
+            </div>
+        </div>
+        <div class="swatch" style="grid-column: span 2;">
+            <div class="swatch-color" style="background: #C9BBA3; height: 80px;"></div>
+            <div class="swatch-info">
+                <p class="swatch-name">Sandstone</p>
+                <p class="swatch-hex">#C9BBA3</p>
+                <p class="swatch-use">Borders, dividers, surface neutrals, swing tags, secondary packaging. The "in-between" tone.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Color rules — iron law</div>
+        <p class="card-body">
+            <strong>Never introduce a sixth color.</strong> Even seasonal drops must work within these five. <strong>Never pair pure black with cream</strong> — always warm black (#1A1614). <strong>Never use terracotta as a background fill</strong> larger than 200 sq px — it is an accent only. <strong>Never use olive and terracotta in equal area</strong> — terracotta is always the smaller of the two. When in doubt, use cream.
+        </p>
+    </div>
+
+    <!-- ─── 04 — Typography ───────────────────────────────────── -->
+    <div class="chapter-header">
+        <div class="section-tag">04 — Typography</div>
+        <h2 class="section-title">Serif Display, Sans Body.</h2>
+        <div class="divider"></div>
+    </div>
+
+    <p class="body-text">
+        Two typefaces only. <strong>Playfair Display</strong> (or Noto Serif SC for CJK / Urdu compatibility) handles all display text — wordmark, section headers, hero typography on the storefront, tagline. <strong>Inter</strong> (or Noto Sans SC for CJK) handles all body text, product descriptions, UI labels, and packaging copy. The serif-sans pairing is the cleanest editorial combination available — Playfair's high-contrast strokes give AANGAN a magazine-grade feel; Inter's neutral grotesque keeps body copy quiet and readable at small sizes.
+    </p>
+
+    <div class="type-spec">
+        <div class="type-spec-label">Display Face</div>
+        <p class="type-display-sample">Wear the Courtyard.</p>
+        <p class="type-body-sample">Playfair Display — italic, 400 weight, hero scale</p>
+        <p class="type-spec-meta"><strong>Family:</strong> Playfair Display (Latin) · Noto Serif SC (CJK/Urdu fallback) · Tinos (print fallback)<br><strong>Weights used:</strong> 400 regular, 400 italic, 700 bold, 900 black<br><strong>Use:</strong> Wordmark, section titles, hero typography, pull quotes, tagline</p>
+    </div>
+
+    <div class="type-spec">
+        <div class="type-spec-label">Body Face</div>
+        <p class="type-body-sample" style="font-size: 22px;">AANGAN is everyday clothing with quiet confidence — earth-tone essentials built to be re-worn 100+ times.</p>
+        <p class="type-spec-meta"><strong>Family:</strong> Inter (Latin) · Noto Sans SC (CJK/Urdu fallback) · Liberation Sans (print fallback)<br><strong>Weights used:</strong> 400 regular, 500 medium, 600 semibold, 700 bold<br><strong>Use:</strong> Body copy, product descriptions, UI labels, packaging, captions, tables</p>
+    </div>
+
+    <table class="type-scale-table">
+        <thead>
+            <tr>
+                <th>Role</th>
+                <th>Face</th>
+                <th>Weight</th>
+                <th>Size</th>
+                <th>Line</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td class="role">Cover wordmark</td><td>Playfair Display</td><td>900</td><td>156px</td><td>1.0</td></tr>
+            <tr><td class="role">Hero typography</td><td>Playfair Display</td><td>900</td><td>56px</td><td>1.1</td></tr>
+            <tr><td class="role">Section title</td><td>Playfair Display</td><td>700</td><td>32px</td><td>1.15</td></tr>
+            <tr><td class="role">Subsection</td><td>Playfair Display</td><td>700</td><td>18px</td><td>1.3</td></tr>
+            <tr><td class="role">Body</td><td>Inter</td><td>400</td><td>13-16px</td><td>1.6-1.7</td></tr>
+            <tr><td class="role">UI label</td><td>Inter</td><td>600</td><td>11px</td><td>1.4</td></tr>
+            <tr><td class="role">Caption / meta</td><td>Inter</td><td>500</td><td>10px</td><td>1.4</td></tr>
+            <tr><td class="role">Tag (uppercase)</td><td>Inter</td><td>700</td><td>9-10px</td><td>1.2</td></tr>
+        </tbody>
+    </table>
+
+    <!-- ─── 05 — Tagline & Voice ──────────────────────────────── -->
+    <div class="chapter-header">
+        <div class="section-tag">05 — Voice</div>
+        <h2 class="section-title">Wear the Courtyard.</h2>
+        <div class="divider"></div>
+    </div>
+
+    <p class="body-text">
+        The tagline is three words, present-tense imperative, lowercase, with a terminal period. It extends the brand-name metaphor without over-explaining it. Used on the storefront hero, the about page, the email signature, and the packaging insert card. The tagline is the brand's shortest complete sentence — everything else flows from its tone: <em>quiet, second-person, present tense, plain language</em>.
+    </p>
+
+    <div class="tagline-display">
+        <p class="tagline-text">Wear the Courtyard<span class="tagline-period">.</span></p>
+        <p class="tagline-meta">Primary tagline / Used across all touchpoints / Year 1 onward</p>
+    </div>
+
+    <p class="body-text">
+        Voice rules below govern all written communication — product descriptions, Instagram captions, email copy, packaging inserts, and customer service replies. The voice is the single most under-invested brand asset in Pakistani apparel; most brands sound either corporate (Sapphire) or hype-beast (LOCAL). AANGAN sounds like a thoughtful friend — confident without being loud, specific without being verbose.
+    </p>
+
+    <div class="voice-rules">
+        <div class="voice-rule">
+            <div class="voice-rule-label">Do — Plain language</div>
+            <p class="voice-rule-body">Use everyday Urdu-English code-switched phrasing where natural. "This hoodie is the one you'll reach for on a Tuesday." Not "Elevate your everyday wardrobe with our signature silhouette."</p>
+        </div>
+        <div class="voice-rule">
+            <div class="voice-rule-label">Do — Specificity</div>
+            <p class="voice-rule-body">Name the fabric, the weight, the city. "320 GSM cotton fleece from Faisalabad." Not "Premium cotton blend." Specificity is a quality signal.</p>
+        </div>
+        <div class="voice-rule">
+            <div class="voice-rule-label">Don't — Hype words</div>
+            <p class="voice-rule-body">Avoid "premium," "luxury," "exclusive," "must-have," "game-changing." These words signal the opposite of what they promise.</p>
+        </div>
+        <div class="voice-rule">
+            <div class="voice-rule-label">Don't — Hard sells</div>
+            <p class="voice-rule-body">No "limited time only," no countdown timers, no "buy now before it's gone." If a product is selling out, just say "back in stock soon."</p>
+        </div>
+    </div>
+
+    <!-- ─── 06 — Packaging ────────────────────────────────────── -->
+    <div class="chapter-header">
+        <div class="section-tag">06 — Packaging</div>
+        <h2 class="section-title">Quiet in the Mailer.</h2>
+        <div class="divider"></div>
+    </div>
+
+    <p class="body-text">
+        Every AANGAN order ships in a <strong>kraft mailer</strong> (recycled, uncoated) with a debossed wordmark — no ink print, no full-color sleeve. Inside: the product wrapped in unbranded cream tissue paper, a <strong>handwritten thank-you card</strong> on cream cardstock (the only ink in the package), and a recycled swing tag attached with cotton twine. The unboxing experience is tactile and quiet — no plastic, no foil, no glossy inserts. This costs PKR 28-45 per unit landed, against an industry average of PKR 18-25, but packaging is a primary brand touchpoint worth the premium.
+    </p>
+
+    <div class="packaging-illustration">
+        <div class="type-spec-label">Packaging components — year 1</div>
+        <div class="mocker">
+            <div class="mocker-item mocker-mailer">
+                <div class="mocker-visual"></div>
+                <p class="mocker-label">Kraft Mailer</p>
+            </div>
+            <div class="mocker-item">
+                <div class="mocker-visual" style="background: #FAF7F2;">
+                    <span style="font-family: 'Playfair Display', serif; font-weight: 700; font-style: italic; color: var(--c-accent); font-size: 16px;">thank you.</span>
+                </div>
+                <p class="mocker-label">Handwritten Card</p>
+            </div>
+            <div class="mocker-item">
+                <div class="mocker-visual" style="background: #C9BBA3;">
+                    <span style="font-family: 'Playfair Display', serif; font-weight: 900; color: var(--c-text); font-size: 18px;">aangan<span style="color: var(--c-accent);">.</span></span>
+                </div>
+                <p class="mocker-label">Swing Tag</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Material specifications</div>
+        <p class="card-body">
+            <strong>Mailer:</strong> 250gsm recycled kraft, debossed wordmark, no ink. Sizes S/M/L for apparel. <strong>Tissue:</strong> 18gsm cream acid-free tissue, unbranded. <strong>Card:</strong> 350gsm cream cardstock, A6 size, handwritten "thank you. [founder first name]" in terracotta ink. <strong>Swing tag:</strong> 400gsm recycled kraft with cotton twine, wordmark debossed on front, fabric + care info printed on back. <strong>Sticker seal:</strong> 50mm round, cream with terracotta wordmark, used to seal the mailer flap.
+        </p>
+    </div>
+
+    <!-- ─── 07 — Applied Examples ─────────────────────────────── -->
+    <div class="chapter-header">
+        <div class="section-tag">07 — Applied</div>
+        <h2 class="section-title">On Product.</h2>
+        <div class="divider"></div>
+    </div>
+
+    <p class="body-text">
+        The identity is applied across hero product colorways in year 1. Each product category has exactly one terracotta-accented hero SKU; the rest of the category rotates between cream, warm black, olive, and sandstone. The applied examples below show how the wordmark sits on four hero colorways — note that the wordmark is always <strong>debossed or woven</strong>, never screen-printed, never larger than 28mm wide on apparel.
+    </p>
+
+    <div class="applied-grid">
+        <div class="applied-card">
+            <div class="applied-visual cream">
+                <span class="mock-label">aangan<span style="color: var(--c-accent);">.</span></span>
+            </div>
+            <div class="applied-info">
+                <p class="applied-name">The Daily Tee</p>
+                <p class="applied-meta">Cream / 180gsm combed cotton / PKR 1,800</p>
+            </div>
+        </div>
+        <div class="applied-card">
+            <div class="applied-visual warm-black">
+                <span class="mock-label">aangan<span style="color: var(--c-accent);">.</span></span>
+            </div>
+            <div class="applied-info">
+                <p class="applied-name">The Office Polo</p>
+                <p class="applied-meta">Warm Black / 220gsm cotton pique / PKR 3,200</p>
+            </div>
+        </div>
+        <div class="applied-card">
+            <div class="applied-visual terracotta">
+                <span class="mock-label">aangan<span style="color: var(--c-bg);">.</span></span>
+            </div>
+            <div class="applied-info">
+                <p class="applied-name">The Drop Tee</p>
+                <p class="applied-meta">Terracotta / 200gsm combed cotton / PKR 2,600</p>
+            </div>
+        </div>
+        <div class="applied-card">
+            <div class="applied-visual olive">
+                <span class="mock-label">aangan<span style="color: var(--c-bg);">.</span></span>
+            </div>
+            <div class="applied-info">
+                <p class="applied-name">The Crew Sweat</p>
+                <p class="applied-meta">Olive / 280gsm french terry / PKR 3,500</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-title">Application rules</div>
+        <p class="card-body">
+            <strong>Apparel:</strong> Wordmark debossed on inside collar (12pt), woven label at left hem (max 28mm wide). Never on the chest, never on the back. <strong>Accessories (mugs):</strong> Wordmark centered on opposite side of handle, 24pt, terracotta on cream or cream on warm-black. <strong>Notebooks:</strong> Wordmark debossed on front cover, centered, 32pt. <strong>Digital:</strong> Wordmark in nav at 18-22px, in email header at 48-72px. Never below 14px (use single-letter <em>a.</em> fallback).
+        </p>
+    </div>
+
+</div>
+
+<!-- ============================================================
+     ENDING PAGE
+     ============================================================ -->
+<div class="ending">
+    <div class="ending-top-bar"></div>
+
+    <div class="ending-section-tag">End of Document</div>
+    <p class="ending-big-text">Built to be re-worn<span class="period">.</span></p>
+    <p class="ending-body">
+        This identity kit is a working document. It will be revised at the end of every season — colors will not change, typography will not change, but the applied examples and packaging specs will evolve as the brand learns what works on real customers in real mailboxes across Pakistan.
+    </p>
+
+    <div class="ending-meta">
+        <div class="ending-meta-item">
+            <div class="ending-meta-label">Document</div>
+            <div class="ending-meta-value">Brand Identity Kit v1.0<br>October 2026</div>
+        </div>
+        <div class="ending-meta-item">
+            <div class="ending-meta-label">Author</div>
+            <div class="ending-meta-value">AANGAN Brand Studio<br>Founder copy</div>
+        </div>
+        <div class="ending-meta-item">
+            <div class="ending-meta-label">Next review</div>
+            <div class="ending-meta-value">End of Season 1<br>March 2027</div>
+        </div>
+    </div>
+
+    <div class="ending-bottom-bar">
+        <span>aangan.pk</span>
+        <span>Wear the Courtyard.</span>
+    </div>
+</div>
+
+</body>
+</html>
