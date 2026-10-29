@@ -15,13 +15,13 @@ export function SiteFooter() {
           {/* Wordmark + tagline */}
           <div className="col-span-2 md:col-span-5">
             <h2 className="brand-wordmark text-4xl md:text-5xl text-[#FAF7F2] mb-2">
-              aangan<span className="period">.</span>
+              FORGE<span className="period">.</span>
             </h2>
             <p className="font-serif italic text-lg text-[#8B5A3C] mb-4">
-              Wear the Courtyard.
+              Forged for the everyday.
             </p>
             <p className="text-xs text-[#C9BBA3] leading-relaxed max-w-xs">
-              A minimal-premium everyday apparel brand from Lahore, Pakistan. Built to be re-worn 100+ washes, in earth tones inspired by the Pakistani aangan.
+              A minimal-premium everyday apparel brand from Lahore, Pakistan. Built to be re-worn 100+ washes, in earth tones inspired by the Pakistani forge.
             </p>
           </div>
 
@@ -53,11 +53,11 @@ export function SiteFooter() {
             <ul className="space-y-2.5 text-xs text-[#FAF7F2]">
               <li className="flex items-center gap-2">
                 <Mail className="h-3.5 w-3.5 text-[#8B5A3C]" />
-                <a href="mailto:hello@aangan.pk" className="hover:text-[#8B5A3C] transition-colors">hello@aangan.pk</a>
+                <a href="mailto:hello@forge.pk" className="hover:text-[#8B5A3C] transition-colors">hello@forge.pk</a>
               </li>
               <li className="flex items-center gap-2">
                 <Instagram className="h-3.5 w-3.5 text-[#8B5A3C]" />
-                <a href="#" className="hover:text-[#8B5A3C] transition-colors">@aangan.pk</a>
+                <a href="#" className="hover:text-[#8B5A3C] transition-colors">@forge.pk</a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-3.5 w-3.5 text-[#8B5A3C]" />
@@ -70,7 +70,7 @@ export function SiteFooter() {
         {/* Bottom bar */}
         <div className="mt-12 pt-6 border-t border-[#3A3128] flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
           <p className="text-[10px] text-[#C9BBA3] uppercase tracking-[0.16em]">
-            © {year} AANGAN Brand Studio · All rights reserved
+            © {year} FORGE Brand Studio · All rights reserved
           </p>
           <div className="flex gap-4 text-[10px] text-[#C9BBA3] uppercase tracking-[0.16em]">
             <a href="#" className="hover:text-[#8B5A3C] transition-colors">Privacy</a>

@@ -56,7 +56,7 @@ export function ProductCard({ product, onOpen }: ProductCardProps) {
             className="font-serif font-black text-2xl md:text-3xl lg:text-4xl tracking-tight"
             style={{ color: textColor, opacity: 0.92 }}
           >
-            aangan<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
+            FORGE<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
           </span>
         </div>
 

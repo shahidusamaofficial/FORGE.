@@ -1,4 +1,4 @@
-// AANGAN — Product catalog
+// FORGE — Product catalog
 // 10 categories, ~40 SKUs across the year-1 line
 // All prices in PKR (Pakistani Rupees)
 
@@ -107,7 +107,7 @@ export const categories: Category[] = [
   {
     id: "printed-mugs",
     name: "Printed Mugs",
-    tagline: "The Courtyard Mug",
+    tagline: "The Forge Mug",
     description:
       "11oz ceramic. Sublimation print. Dishwasher-safe. Pairs with morning chai and a slow hour.",
     fabric: "Ceramic 11oz",
@@ -388,7 +388,7 @@ export const products: Product[] = [
   // ─── Printed Mugs ─────────────────────────────────────────
   {
     id: "mg-001",
-    name: "The Courtyard Mug",
+    name: "The Forge Mug",
     category: "printed-mugs",
     price: 1100,
     colorway: "cream",
@@ -400,7 +400,7 @@ export const products: Product[] = [
   },
   {
     id: "mg-002",
-    name: "The Courtyard Mug / Warm Black",
+    name: "The Forge Mug / Warm Black",
     category: "printed-mugs",
     price: 900,
     colorway: "warm-black",
@@ -410,7 +410,7 @@ export const products: Product[] = [
   },
   {
     id: "mg-003",
-    name: "The Courtyard Mug / Terracotta",
+    name: "The Forge Mug / Terracotta",
     category: "printed-mugs",
     price: 1200,
     colorway: "terracotta",

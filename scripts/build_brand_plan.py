@@ -1,5 +1,5 @@
 """
-AANGAN — Brand Plan PDF Generator
+FORGE — Brand Plan PDF Generator
 Minimal-premium earth-tone brand plan for a Pakistani clothing brand.
 Uses ReportLab with a styled cover page + 11 body sections with tables.
 """
@@ -37,7 +37,7 @@ pdfmetrics.registerFont(TTFont('NotoSansSC-Bold',
 registerFontFamily('NotoSansSC', normal='NotoSansSC', bold='NotoSansSC-Bold')
 
 # ─────────────────────────────────────────────────────────────
-# AANGAN brand palette (minimal premium earth tones)
+# FORGE brand palette (minimal premium earth tones)
 # ─────────────────────────────────────────────────────────────
 # XL tier: backgrounds (S ≤ 0.08)
 PAGE_BG       = colors.HexColor('#FAF7F2')   # warm cream
@@ -156,7 +156,7 @@ sty_td_bold = ParagraphStyle('TDb',
 # Cover page (Page 1) — drawn entirely via canvas callback
 # ─────────────────────────────────────────────────────────────
 def draw_cover(canvas, doc):
-    """Draw the AANGAN cover page on the canvas. Called via onFirstPage."""
+    """Draw the FORGE cover page on the canvas. Called via onFirstPage."""
     c = canvas
     c.saveState()
     # Fill background with cream (full page)
@@ -171,14 +171,14 @@ def draw_cover(canvas, doc):
     c.setFillColor(WHITE)
     c.setFont('NotoSansSC', 8)
     c.drawString(MARGIN_L, PAGE_H - 5.5*mm,
-                 'AANGAN  /  BRAND PLAN  /  V1.0  /  2026')
+                 'FORGE  /  BRAND PLAN  /  V1.0  /  2026')
     c.drawRightString(PAGE_W - MARGIN_R, PAGE_H - 5.5*mm,
                       'INTERNAL — FOUNDER COPY')
 
     # Wordmark (lowercase serif with period)
     c.setFillColor(TEXT_PRIMARY)
     c.setFont('NotoSerifSC-Bold', 86)
-    c.drawString(MARGIN_L, PAGE_H - 60*mm, 'aangan.')
+    c.drawString(MARGIN_L, PAGE_H - 60*mm, 'FORGE.')
 
     # Thin terracotta rule below wordmark
     c.setStrokeColor(ACCENT)
@@ -188,7 +188,7 @@ def draw_cover(canvas, doc):
     # Tagline
     c.setFillColor(ACCENT)
     c.setFont('NotoSerifSC', 22)
-    c.drawString(MARGIN_L, PAGE_H - 80*mm, 'Wear the Courtyard.')
+    c.drawString(MARGIN_L, PAGE_H - 80*mm, 'Forged for the everyday.')
 
     # Subtitle
     c.setFillColor(TEXT_PRIMARY)
@@ -230,7 +230,7 @@ def draw_cover(canvas, doc):
     # Footer text on bottom strip
     c.setFillColor(WHITE)
     c.setFont('NotoSansSC', 8)
-    c.drawString(MARGIN_L, 1.5*mm, 'aangan.pk  /  hello@aangan.pk  /  @aangan.pk')
+    c.drawString(MARGIN_L, 1.5*mm, 'forge.pk  /  hello@forge.pk  /  @forge.pk')
     c.drawRightString(PAGE_W - MARGIN_R, 1.5*mm,
                       'Document confidential — do not distribute')
 
@@ -319,7 +319,7 @@ def on_later_pages(canvas, doc):
     canvas.setFillColor(TEXT_MUTED)
     canvas.setFont('NotoSansSC', 8)
     canvas.drawString(MARGIN_L, MARGIN_B - 12*mm,
-                      'AANGAN  /  Brand Plan v1.0  /  2026')
+                      'FORGE  /  Brand Plan v1.0  /  2026')
     # Right page number (page 1 was cover, so subtract 1)
     canvas.drawRightString(PAGE_W - MARGIN_R, MARGIN_B - 12*mm,
                            f'{page_num - 1}  /  11')
@@ -339,7 +339,7 @@ def build_section_2_executive_summary():
     return [
         section_header(2, 'Executive Summary'),
         Paragraph(
-            'AANGAN is a mid-premium everyday apparel and accessories brand for Pakistan '
+            'FORGE is a mid-premium everyday apparel and accessories brand for Pakistan '
             'launching in 2026 out of Lahore. The brand sits in a clear gap between the '
             'budget mass-market tier (LOCAL, Breakout, Edenrobe) and the premium ethnic '
             'tier (Khaadi, Sapphire, Ethnic by Ayesha) — a quiet, minimal-premium territory '
@@ -347,7 +347,8 @@ def build_section_2_executive_summary():
             'line spans 10 categories — hoodies, t-shirts, sweatshirts, drop-shoulder tees, '
             'polo shirts, round-neck full-sleeve tees, printed mugs, zipper hoodies, and '
             'printed notebooks — built on a single design philosophy: essentials-first silhouettes '
-            'in earth tones inspired by the Pakistani <i>aangan</i> (inner courtyard).',
+            'in earth tones drawn from the forge itself — cream ash, warm black iron, '
+            'terracotta ember, olive slag, and sandstone heat-patina.',
             sty_body_just),
         Paragraph(
             'The target is a deliberately mixed customer base: urban Gen-Z (18-25) in Karachi, '
@@ -368,7 +369,7 @@ def build_section_2_executive_summary():
             'in Q3 and a Lahore pop-up store in Q4.',
             sty_body_just),
         Paragraph(
-            '"AANGAN is not chasing the loudest corner of the market. It is building the '
+            '"FORGE is not chasing the loudest corner of the market. It is building the '
             'quiet corner — the one a customer returns to season after season."',
             sty_pull),
     ]
@@ -380,23 +381,28 @@ def build_section_3_brand_story():
         section_header(3, 'Brand Story & Identity'),
         Paragraph('The meaning behind the name', sty_h2),
         Paragraph(
-            'In Pakistani architecture, the <i>aangan</i> is the inner courtyard of a home — '
-            'an open-to-sky central space where the family gathers, where meals are shared on '
-            'charpoys during summer nights, where children first learn the names of stars, and '
-            'where a household\'s identity is quietly formed across generations. It is not the '
-            'facade that strangers see from the street; it is the private, lived-in heart of '
-            'the home. AANGAN the brand takes this exact emotional architecture and applies it '
-            'to clothing. The garments are not costumes for public display — they are the '
-            'personal, everyday layer the customer lives in, the way the courtyard is lived in.',
+            'A forge is where raw material is heated, hammered, and shaped into something '
+            'durable — a knife that holds its edge through a hundred dinners, a hinge on a '
+            'door that swings for decades, a tool passed down to the next maker. Nothing '
+            'leaves a forge that wasn\'t intentionally built. Wazirabad in Punjab has been '
+            'Pakistan\'s forge city for over a century — the place where the country\'s '
+            'knives, scissors, and surgical instruments are hammered into shape, where the '
+            'rhythm of strike-and-cool has been the same sound for four generations. FORGE '
+            'the brand takes this exact craft logic and applies it to clothing: every '
+            'garment built to be re-worn 100+ wash cycles, in earth tones drawn from the '
+            'forge itself — cream ash, warm black iron, terracotta ember, olive slag, '
+            'sandstone heat-patina.',
             sty_body_just),
         Paragraph(
-            'This naming choice is deliberate. Most Pakistani apparel brands borrow English '
-            'or Persian words that signal status or aspiration ("Edenrobe", "Khaadi", '
-            '"Sapphire"). AANGAN uses a plain Urdu household word with no aspirational baggage, '
-            'and the lowercase wordmark <b>aangan.</b> with a terminal period signals restraint '
-            'and intentionality — a quiet confidence that does not need to shout. The tagline '
-            '"Wear the Courtyard" extends the metaphor explicitly: clothing as the personal '
-            'space one carries with them.',
+            'This naming choice is deliberate. Most Pakistani apparel brands borrow aspirational '
+            'English words (Edenrobe, Sapphire) or ethnic-cultural markers (Khaadi, Ethnic) '
+            'that signal status or heritage. FORGE uses a single industrial English noun — a '
+            'place where craft happens, where material becomes object — with no aspirational '
+            'baggage and no cultural costume. The uppercase wordmark <b>FORGE.</b> with a '
+            'terminal period signals restraint and intentionality: this brand is finished '
+            'thinking about itself. The tagline "Forged for the everyday." extends the '
+            'metaphor explicitly: clothing built deliberately, for the layer the customer '
+            'reaches for on an ordinary Tuesday.',
             sty_body_just),
         Paragraph('Four brand values', sty_h2),
         Paragraph(
@@ -407,9 +413,9 @@ def build_section_3_brand_story():
             'measured, not marketed.',
             sty_body_just),
         Paragraph(
-            '<b>Comfort.</b> AANGAN refuses the trend-chasing silhouette of the moment. Fits '
+            '<b>Comfort.</b> FORGE refuses the trend-chasing silhouette of the moment. Fits '
             'are relaxed but not oversized, drop-shoulder but not boxy, polo collars sit flat '
-            'instead of curling. The customer should reach for the same AANGAN hoodie on a '
+            'instead of curling. The customer should reach for the same FORGE hoodie on a '
             'Tuesday morning and a Friday night without thinking about it.',
             sty_body_just),
         Paragraph(
@@ -417,14 +423,15 @@ def build_section_3_brand_story():
             'logos, no all-over graphics, no neon. Branding is a small woven label at the hem '
             'and a debossed wordmark on the inside collar. The clothing lets the wearer\'s '
             'personality lead. This is the brand\'s sharpest competitive differentiation: in a '
-            'market saturated with logo-heavy streetwear, AANGAN offers the opposite pole.',
+            'market saturated with logo-heavy streetwear, FORGE offers the opposite pole.',
             sty_body_just),
         Paragraph(
-            '<b>Cultural Roots.</b> Earth tones (terracotta, sandstone, olive, indigo) reference '
-            'Pakistani soil, brick architecture, and traditional textile palettes without '
-            'crossing into costume-y "ethnic" territory. Taglines and product names use Urdu '
-            'transliteration sparingly. The brand is unambiguously Pakistani without performing '
-            'Pakistani-ness.',
+            '<b>Cultural Roots.</b> Earth tones (cream ash, warm black iron, terracotta '
+            'ember, olive slag, sandstone heat-patina) reference the Pakistani forge '
+            'tradition — Wazirabad cutlery, Faisalabad textile mills, Lahore brick kilns — '
+            'without crossing into costume-y "ethnic" territory. Taglines and product names '
+            'use Urdu transliteration sparingly. The brand is unambiguously Pakistani without '
+            'performing Pakistani-ness.',
             sty_body_just),
     ]
 
@@ -432,14 +439,14 @@ def build_section_3_brand_story():
 def build_section_4_market():
     """Market Analysis with competitor table."""
     comp_data = [
-        ['Brand', 'Tier', 'Avg Tee Price (PKR)', 'Style Position', 'Target', 'AANGAN Risk'],
+        ['Brand', 'Tier', 'Avg Tee Price (PKR)', 'Style Position', 'Target', 'FORGE Risk'],
         ['LOCAL', 'Budget', '1,200-1,800', 'Streetwear graphics', 'Gen-Z urban', 'High — direct overlap on drop-shoulder'],
         ['Breakout', 'Budget', '1,400-2,000', 'Casual basics', 'Mass-market', 'Low — different aesthetic'],
         ['Edenrobe', 'Budget-mid', '1,500-2,500', 'Ethnic + casual', 'Family/mass', 'Low — different audience'],
         ['Sapphire', 'Mid-premium', '2,200-3,500', 'Ethnic + office wear', 'Women 25-40', 'Medium — women-led'],
         ['Khaadi', 'Premium', '2,500-4,500', 'Ethnic fusion', 'Premium urban', 'Medium — price overlap, ethnic lean'],
         ['Levi\'s PK', 'Premium intl', '3,500-6,000', 'Denim-led basics', 'Aspirational', 'Low — different category'],
-        ['AANGAN', 'Mid-premium', '1,800-2,800', 'Minimal earth-tone', 'Mixed Gen-Z + young pro', '— (this brand)'],
+        ['FORGE', 'Mid-premium', '1,800-2,800', 'Minimal earth-tone', 'Mixed Gen-Z + young pro', '— (this brand)'],
     ]
     comp_widths = [22*mm, 18*mm, 28*mm, 32*mm, 25*mm, 41*mm]
 
@@ -455,20 +462,20 @@ def build_section_4_market():
             'fastest-growing slice and the most under-served by current domestic players.',
             sty_body_just),
         Paragraph(
-            'The competitive map below positions the seven most relevant brands against AANGAN. '
+            'The competitive map below positions the seven most relevant brands against FORGE. '
             'The structural insight: the budget tier (LOCAL, Breakout) owns streetwear graphics '
             'and mass basics, while the premium tier (Khaadi, Sapphire, Levi\'s) owns ethnic '
             'fusion and denim-led aspirational basics. Between them sits a clear white space — '
             'minimal-premium everyday basics in a coherent earth-tone palette. No domestic '
-            'brand currently owns this corner, which is exactly where AANGAN plants its flag.',
+            'brand currently owns this corner, which is exactly where FORGE plants its flag.',
             sty_body_just),
         Spacer(1, 4),
         make_table(comp_data, comp_widths, header_row=True, first_col_bold=True),
         Spacer(1, 4),
         Paragraph(
             'Table 1 — Pakistani apparel competitive landscape, 2026. Prices reflect Q4 2025 '
-            'in-store and online observations. "AANGAN Risk" column rates direct overlap with '
-            'AANGAN\'s catalog and audience.',
+            'in-store and online observations. "FORGE Risk" column rates direct overlap with '
+            'FORGE\'s catalog and audience.',
             sty_caption),
     ]
 
@@ -486,10 +493,10 @@ def build_section_5_audience():
     return [
         section_header(5, 'Target Audience'),
         Paragraph(
-            'AANGAN targets a deliberately mixed customer base across three personas. This is '
+            'FORGE targets a deliberately mixed customer base across three personas. This is '
             'a strategic choice — most Pakistani apparel brands over-index on one persona '
             '(Khaadi on premium urban women, LOCAL on Gen-Z streetwear, Sapphire on women '
-            '25-40). AANGAN\'s broader catalog supports broader targeting, and the unified '
+            '25-40). FORGE\'s broader catalog supports broader targeting, and the unified '
             'earth-tone palette keeps the brand coherent across personas rather than fragmenting '
             'into three sub-brands. Each persona below finds 3-5 hero SKUs in the catalog.',
             sty_body_just),
@@ -541,20 +548,21 @@ def build_section_6_positioning():
         Paragraph('Positioning statement', sty_h2),
         Paragraph(
             '<i>"For Pakistanis who want premium-feeling everyday clothing without the premium '
-            'price tag, AANGAN offers minimal, well-crafted basics in earth tones inspired by '
-            'the Pakistani aangan. Unlike LOCAL\'s loud streetwear or Khaadi\'s ethnic fusion, '
-            'AANGAN delivers quiet, considered essentials at the PKR 1,800-5,500 price band — '
+            'price tag, FORGE offers minimal, well-crafted basics in earth tones drawn from '
+            'the Pakistani forge tradition. Unlike LOCAL\'s loud streetwear or Khaadi\'s '
+            'ethnic fusion, '
+            'FORGE delivers quiet, considered essentials at the PKR 1,800-5,500 price band — '
             'clothing that earns a permanent place in the rotation."</i>',
             sty_pull),
         Paragraph('Perceptual map description', sty_h2),
         Paragraph(
             'On the standard apparel perceptual map with X-axis Casual to Formal and Y-axis '
-            'Budget to Premium, AANGAN sits in the upper-middle of the Premium axis (above '
+            'Budget to Premium, FORGE sits in the upper-middle of the Premium axis (above '
             'LOCAL and Breakout, below Levi\'s and Khaadi premium lines) and in the middle-left '
             'of the Casual axis (more casual than Sapphire, more formal than streetwear micro-'
             'brands). This upper-middle-middle-left quadrant is the most under-served region '
             'in the current Pakistani market — domestic brands either drop to the budget-casual '
-            'corner or jump to premium-formal-ethnic. AANGAN\'s position gives it natural price '
+            'corner or jump to premium-formal-ethnic. FORGE\'s position gives it natural price '
             'headroom above the budget tier and natural style differentiation from the premium '
             'ethnic tier.',
             sty_body_just),
@@ -563,7 +571,7 @@ def build_section_6_positioning():
             '<b>Pillar 1 — Earth-tone palette nobody owns.</b> Every Pakistani apparel brand '
             'currently operates in either black-white-grey (LOCAL, Breakout), saturated ethnic '
             'brights (Khaadi festive, Sapphire lawn), or international neon accents (Levi\'s). '
-            'AANGAN\'s 5-color core palette — cream, warm-black, terracotta, olive, sandstone — '
+            'FORGE\'s 5-color core palette — cream, warm-black, terracotta, olive, sandstone — '
             'is unique in the market and instantly recognizable. Within two seasons the palette '
             'itself becomes the brand cue, the way Aesop\'s amber bottles signal the brand '
             'before the logo is even read.',
@@ -580,7 +588,7 @@ def build_section_6_positioning():
             '<b>Pillar 3 — Mid-premium quality at accessible price.</b> Fabric specs (GSM '
             'disclosed, 240 GSM fleece for hoodies, 180 GSM combed cotton for tees) match '
             'Khaadi and Sapphire construction quality, but pricing sits 25-35% below those '
-            'brands. This is achievable because AANGAN operates direct-to-consumer with no '
+            'brands. This is achievable because FORGE operates direct-to-consumer with no '
             'physical retail overhead in year 1, sources directly from Faisalabad mills, and '
             'runs a lean team of three founders plus a part-time designer.',
             sty_body_just),
@@ -597,7 +605,7 @@ def build_section_7_catalog():
         ['Drop-Shoulder T-Shirts', 'Combed cotton jersey, relaxed', '200', 'S-XXL', '2,400-2,800', 'The Drop Tee / Terracotta'],
         ['Polo Shirts', 'Cotton pique, 2-button placket', '220', 'S-XXL', '2,800-3,500', 'The Office Polo / Warm Black'],
         ['Round-Neck Full-Sleeve T-Shirts', 'Combed cotton jersey, long sleeve', '190', 'S-XXL', '2,200-2,800', 'The Long Sleeve / Sandstone'],
-        ['Printed Mugs', 'Ceramic 11oz, sublimation print', '—', '11oz', '900-1,200', 'The Courtyard Mug / Cream'],
+        ['Printed Mugs', 'Ceramic 11oz, sublimation print', '—', '11oz', '900-1,200', 'The Forge Mug / Cream'],
         ['Zipper Hoodies', 'Cotton fleece, YKK metal zipper', '320', 'S-XXL', '4,800-5,500', 'The Zip Hoodie / Warm Black'],
         ['Printed Notebooks', 'Recycled kraft cover, 80 ruled sheets', '—', 'A5', '700-1,000', 'The Daily Notebook / Kraft'],
     ]
@@ -657,7 +665,7 @@ def build_section_8_suppliers():
             'Pakistan\'s textile supply chain is one of the most mature in Asia — Faisalabad '
             'is a global knit-fabric cluster, Lahore has dense cut-and-sew capacity in Johar '
             'Town and Sundar Industrial Estate, and Karachi\'s Saddar area handles sublimation '
-            'and small-batch printing for accessories. AANGAN\'s sourcing strategy is to keep '
+            'and small-batch printing for accessories. FORGE\'s sourcing strategy is to keep '
             'all production within Pakistan (no imports in year 1) for cost control, currency '
             'stability, and brand storytelling ("made in Pakistan, by Pakistanis"). This also '
             'enables short lead times — 2-4 weeks across the catalog — which is critical for '
@@ -669,7 +677,7 @@ def build_section_8_suppliers():
             'per unit (excluding branding and packaging). Costs are based on Q4 2025 supplier '
             'quotations gathered during founder diligence trips to Faisalabad and Lahore. '
             'All suppliers are pre-qualified — three units in Lahore have agreed in principle '
-            'to AANGAN\'s small-batch model in exchange for a 15-20% price premium over their '
+            'to FORGE\'s small-batch model in exchange for a 15-20% price premium over their '
             'standard mass-production rate.',
             sty_body_just),
         Spacer(1, 4),
@@ -677,7 +685,7 @@ def build_section_8_suppliers():
         Spacer(1, 4),
         Paragraph(
             'Table 4 — Supplier map by product category. Landed cost excludes branding, '
-            'packaging, and inbound freight to AANGAN\'s Lahore fulfillment hub.',
+            'packaging, and inbound freight to FORGE\'s Lahore fulfillment hub.',
             sty_caption),
     ]
 
@@ -700,7 +708,7 @@ def build_section_9_marketing():
     return [
         section_header(9, 'Marketing & Go-To-Market Plan'),
         Paragraph(
-            'AANGAN\'s 12-month GTM plan runs in three phases. <b>Phase 1 — Launch (months '
+            'FORGE\'s 12-month GTM plan runs in three phases. <b>Phase 1 — Launch (months '
             '1-3)</b> is Instagram-first with three micro-influencer collaborations (50K-200K '
             'follower creators in fashion, lifestyle, and student-life niches), paired with '
             'campus activations at LUMS, Bahria, and NUST Lahore. The launch drop includes '
@@ -764,7 +772,7 @@ def build_section_10_financials():
         section_header(10, 'Financial Projections'),
         Paragraph('Startup cost breakdown', sty_h2),
         Paragraph(
-            'The total startup capital required to launch AANGAN and sustain operations through '
+            'The total startup capital required to launch FORGE and sustain operations through '
             'month 3 is approximately PKR 4.9M (~USD 17,500 at current exchange rates). '
             'Inventory is the single largest line item at PKR 1.8M — funding the first drop of '
             'approximately 1,400 units across 5 hero SKUs at an average landed cost of PKR 1,000 '
@@ -815,10 +823,10 @@ def build_section_11_identity():
     return [
         section_header(11, 'Brand Visual Identity'),
         Paragraph(
-            'AANGAN\'s visual identity is intentionally restrained — a serif wordmark, a tight '
+            'FORGE\'s visual identity is intentionally restrained — a serif wordmark, a tight '
             '5-color earth-tone palette, and disciplined typography. This is the brand\'s '
             'sharpest competitive differentiation: in a market saturated with logo-heavy '
-            'streetwear and ethnic-illustration premium brands, AANGAN offers the opposite '
+            'streetwear and ethnic-illustration premium brands, FORGE offers the opposite '
             'pole — quiet, typography-led, palette-led. A full brand identity kit (logo '
             'concepts, color swatches with hex codes, typography specs, packaging mockups, '
             'and applied examples) is delivered as a separate PDF deliverable alongside this '
@@ -826,7 +834,7 @@ def build_section_11_identity():
             sty_body_just),
         Paragraph('Logo concept', sty_h3),
         Paragraph(
-            'The primary logo is a lowercase serif wordmark: <b>aangan.</b> with a terminal '
+            'The primary logo is a lowercase serif wordmark: <b>FORGE.</b> with a terminal '
             'period as a "restraint signal" — a small typographic gesture that says "this '
             'brand is finished thinking about itself." The wordmark is set in Noto Serif SC '
             'Bold (or a comparable serif such as Tinos / Playfair Display in Latin), 86pt at '
@@ -836,7 +844,7 @@ def build_section_11_identity():
             sty_body_just),
         Paragraph('Color palette', sty_h3),
         Paragraph(
-            'Five core colors form the AANGAN palette: <b>Cream</b> (#FAF7F2) as the primary '
+            'Five core colors form the FORGE palette: <b>Cream</b> (#FAF7F2) as the primary '
             'background — warm, not cold, paper-like; <b>Warm Black</b> (#1A1614) as the primary '
             'text and dark surface — near-black with a brown undertone rather than pure black; '
             '<b>Terracotta Clay</b> (#8B5A3C) as the single accent color — used for rules, '
@@ -855,8 +863,8 @@ def build_section_11_identity():
             sty_body_just),
         Paragraph('Tagline', sty_h3),
         Paragraph(
-            '<b>Wear the Courtyard.</b> — Three words, present-tense imperative, lowercase '
-            'period at the end. Extends the brand-name metaphor without over-explaining it. '
+            '<b>Forged for the everyday.</b> — Four words, present-tense, with a terminal '
+            'period. Extends the brand-name metaphor without over-explaining it. '
             'Used on the storefront hero, the about page, the email signature, and the '
             'packaging insert card.',
             sty_body_just),
@@ -904,7 +912,7 @@ def build_section_12_roadmap():
         Paragraph('Immediate next steps (week 1-2)', sty_h2),
         Paragraph(
             '<b>1. Register the brand name.</b> File SECP (Securities and Exchange Commission '
-            'of Pakistan) sole-proprietor or private-limited registration for AANGAN, and '
+            'of Pakistan) sole-proprietor or private-limited registration for FORGE, and '
             'submit IPO (Intellectual Property Organization) trademark application for the '
             'wordmark in Class 25 (clothing) and Class 16 (printed notebooks). Cost: PKR 80K '
             'all-in. Lead time: 4-6 weeks for SECP, 18-24 months for trademark final grant '
@@ -925,7 +933,7 @@ def build_section_12_roadmap():
             'for 500 meters of 320 GSM cotton fleece in cream, sandstone, and warm-black.',
             sty_body_just),
         Paragraph(
-            '<b>4. Build the Next.js storefront.</b> Stand up the AANGAN e-commerce site on '
+            '<b>4. Build the Next.js storefront.</b> Stand up the FORGE e-commerce site on '
             'Next.js 16 with Tailwind CSS, shadcn/ui components, and integrated checkout '
             '(Stripe for international cards, JazzCash / Easypaisa for local payments). The '
             'site must include a homepage, a shop page with category filtering across all 10 '
@@ -948,7 +956,7 @@ def build_section_12_roadmap():
 # Main build
 # ─────────────────────────────────────────────────────────────
 def build():
-    output_path = '/home/z/my-project/download/AANGAN_Brand_Plan.pdf'
+    output_path = '/home/z/my-project/download/FORGE_Brand_Plan.pdf'
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
     doc = SimpleDocTemplate(
@@ -958,10 +966,10 @@ def build():
         rightMargin=MARGIN_R,
         topMargin=MARGIN_T,
         bottomMargin=MARGIN_B,
-        title='AANGAN — Brand Plan v1.0',
-        author='AANGAN / Z.ai',
+        title='FORGE — Brand Plan v1.0',
+        author='FORGE / Z.ai',
         subject='Brand plan for a Pakistani clothing brand',
-        creator='AANGAN Brand Studio',
+        creator='FORGE Brand Studio',
     )
 
     story = []

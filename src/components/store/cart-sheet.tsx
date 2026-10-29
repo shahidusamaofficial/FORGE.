@@ -156,7 +156,7 @@ export function CartSheet() {
                           className="font-serif font-black text-xs tracking-tight"
                           style={{ color: textColor, opacity: 0.9 }}
                         >
-                          aangan<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
+                          FORGE<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
                         </span>
                       </div>
                     </div>

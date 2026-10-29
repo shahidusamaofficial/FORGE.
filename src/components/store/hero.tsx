@@ -10,7 +10,7 @@ export function Hero() {
         {/* Edition label */}
         <div className="flex items-center justify-between mb-12 md:mb-16">
           <span className="brand-eyebrow text-[#6E6258]">
-            AANGAN / Brand Launch / 2026
+            FORGE / Brand Launch / 2026
           </span>
           <span className="hidden md:inline brand-eyebrow text-[#6E6258]">
             Lahore · Pakistan
@@ -19,7 +19,7 @@ export function Hero() {
 
         {/* Wordmark */}
         <h1 className="brand-wordmark text-[18vw] md:text-[12vw] lg:text-[10rem] leading-[0.85] text-[#1A1614]">
-          aangan<span className="period">.</span>
+          FORGE<span className="period">.</span>
         </h1>
 
         {/* Rule */}
@@ -27,14 +27,14 @@ export function Hero() {
 
         {/* Tagline */}
         <p className="font-serif italic text-3xl md:text-5xl lg:text-6xl text-[#8B5A3C] leading-tight max-w-3xl">
-          Wear the Courtyard.
+          Forged for the everyday.
         </p>
 
         {/* Subtitle */}
         <p className="mt-6 max-w-2xl text-sm md:text-base text-[#1A1614] leading-relaxed">
           A minimal-premium everyday apparel brand from Lahore. Hoodies, tees,
           sweatshirts, polos, mugs, and notebooks — built to be re-worn 100+
-          washes, in earth tones inspired by the Pakistani aangan.
+          washes, in earth tones inspired by the Pakistani forge.
         </p>
 
         {/* CTAs */}

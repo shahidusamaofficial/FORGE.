@@ -29,7 +29,7 @@ export function Newsletter() {
     <section id="newsletter" className="bg-[#FAF7F2] px-4 md:px-8 py-16 md:py-24">
       <div className="mx-auto max-w-3xl text-center">
         <p className="brand-eyebrow text-[#8B5A3C] mb-3">
-          Stay in the courtyard
+          Stay in the forge
         </p>
         <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#1A1614] mb-4 leading-tight">
           One email per drop.
@@ -62,7 +62,7 @@ export function Newsletter() {
         </form>
 
         <p className="mt-4 text-[10px] text-[#6E6258]">
-          By subscribing, you agree to receive marketing emails from AANGAN. We send 1–2 emails per month.
+          By subscribing, you agree to receive marketing emails from FORGE. We send 1–2 emails per month.
         </p>
       </div>
     </section>

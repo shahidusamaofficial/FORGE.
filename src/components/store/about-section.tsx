@@ -15,7 +15,7 @@ const values = [
   },
   {
     label: "Cultural Roots",
-    body: "Earth tones referencing Pakistani soil, brick architecture, and traditional textile palettes — without crossing into costume-y ethnic territory. Unambiguously Pakistani without performing Pakistani-ness.",
+    body: "Earth tones drawn from the Pakistani forge tradition — Wazirabad cutlery, Faisalabad textile mills, Lahore brick kilns — without crossing into costume-y ethnic territory. Unambiguously Pakistani without performing Pakistani-ness.",
   },
 ];
 
@@ -28,18 +28,18 @@ export function AboutSection() {
           <div className="md:col-span-4">
             <p className="brand-eyebrow text-[#8B5A3C] mb-3">01 — Foundation</p>
             <h2 className="font-serif text-3xl md:text-5xl font-bold leading-tight text-[#FAF7F2]">
-              The courtyard, worn.
+              Where material becomes object.
             </h2>
           </div>
           <div className="md:col-span-7 md:col-start-6 space-y-5 text-sm md:text-base text-[#FAF7F2] leading-relaxed">
             <p>
-              In Pakistani architecture, the <em className="text-[#C9BBA3] not-italic font-semibold">aangan</em> is the inner courtyard of a home — the open-to-sky central space where family gathers, where children first learn the names of stars, where a household's identity is quietly formed across generations. It is not the facade strangers see from the street; it is the private, lived-in heart of the home.
+              A forge is where raw material is heated, hammered, and shaped into something durable — a knife that holds its edge through a hundred dinners, a hinge on a door that swings for decades, a tool passed down to the next maker. Nothing leaves a forge that wasn&apos;t intentionally built. Wazirabad in Punjab has been Pakistan&apos;s forge city for over a century — the place where the country&apos;s knives, scissors, and surgical instruments are hammered into shape, where the rhythm of strike-and-cool has been the same sound for four generations.
             </p>
             <p>
-              AANGAN the brand takes this exact emotional architecture and applies it to clothing. The garments are not costumes for public display — they are the personal, everyday layer the customer lives in, the way the courtyard is lived in. The lowercase wordmark <span className="font-serif font-black">aangan<span className="text-[#8B5A3C]">.</span></span> with a terminal period signals restraint: this brand is finished thinking about itself.
+              FORGE the brand takes this exact craft logic and applies it to clothing: every garment built to be re-worn 100+ wash cycles, in earth tones drawn from the forge itself — cream ash, warm black iron, terracotta ember, olive slag, sandstone heat-patina. The uppercase wordmark <span className="font-serif font-black">FORGE<span className="text-[#8B5A3C]">.</span></span> with a terminal period signals restraint: this brand is finished thinking about itself.
             </p>
             <p className="text-[#C9BBA3] italic font-serif text-base md:text-lg">
-              "Clothing as your personal courtyard — a space of comfort, authenticity, and quiet pride."
+              &ldquo;Forged for the everyday — clothing built deliberately, for the layer you reach for on an ordinary Tuesday.&rdquo;
             </p>
           </div>
         </div>

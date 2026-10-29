@@ -1,4 +1,4 @@
-// AANGAN — Cart state (Zustand)
+// FORGE — Cart state (Zustand)
 
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
@@ -69,7 +69,7 @@ export const useCart = create<CartState>()(
         ),
     }),
     {
-      name: "aangan-cart",
+      name: "forge-cart",
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({ items: state.items }), // only persist items, not isOpen
     }

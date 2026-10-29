@@ -30,7 +30,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
         {/* Wordmark */}
         <Link href="/" className="brand-wordmark text-2xl md:text-3xl text-[#1A1614] hover:opacity-80 transition-opacity">
-          aangan<span className="period">.</span>
+          FORGE<span className="period">.</span>
         </Link>
 
         {/* Desktop nav */}
@@ -76,7 +76,7 @@ export function SiteHeader() {
             <SheetContent side="left" className="w-72 bg-[#FAF7F2]">
               <SheetHeader>
                 <SheetTitle className="brand-wordmark text-2xl text-[#1A1614]">
-                  aangan<span className="period">.</span>
+                  FORGE<span className="period">.</span>
                 </SheetTitle>
               </SheetHeader>
               <nav className="mt-8 flex flex-col gap-4">

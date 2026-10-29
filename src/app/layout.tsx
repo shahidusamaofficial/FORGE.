@@ -18,11 +18,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "aangan. — Wear the Courtyard.",
+  title: "FORGE. — Forged for the everyday.",
   description:
-    "AANGAN is a minimal-premium everyday apparel brand from Lahore, Pakistan. Hoodies, tees, sweatshirts, polos, mugs, and notebooks in earth tones inspired by the Pakistani aangan.",
+    "FORGE is a minimal-premium everyday apparel brand from Lahore, Pakistan. Hoodies, tees, sweatshirts, polos, mugs, and notebooks in earth tones inspired by the Pakistani forge.",
   keywords: [
-    "AANGAN",
+    "FORGE",
     "Pakistani clothing brand",
     "minimal premium",
     "earth tones",
@@ -31,11 +31,11 @@ export const metadata: Metadata = {
     "polo shirts",
     "Lahore",
   ],
-  authors: [{ name: "AANGAN Brand Studio" }],
+  authors: [{ name: "FORGE Brand Studio" }],
   openGraph: {
-    title: "aangan. — Wear the Courtyard.",
+    title: "FORGE. — Forged for the everyday.",
     description: "Minimal-premium everyday apparel from Lahore, Pakistan.",
-    siteName: "AANGAN",
+    siteName: "FORGE",
     type: "website",
   },
 };

@@ -24,7 +24,7 @@ export function CategorySection({ onSelectCategory }: CategorySectionProps) {
             Ten categories, one palette.
           </h2>
           <p className="text-sm md:text-base text-[#6E6258] leading-relaxed">
-            Every AANGAN product is built on the same five-color earth-tone palette and
+            Every FORGE product is built on the same five-color earth-tone palette and
             the same construction philosophy. Pick a category to see its hero SKUs and
             full colorway range.
           </p>
@@ -53,7 +53,7 @@ export function CategorySection({ onSelectCategory }: CategorySectionProps) {
                       className="font-serif font-black text-base md:text-lg tracking-tight"
                       style={{ color: textColor, opacity: 0.9 }}
                     >
-                      aangan<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
+                      FORGE<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
                     </span>
                   </div>
 

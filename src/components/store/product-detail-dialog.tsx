@@ -79,7 +79,7 @@ function ProductDetailContent({ product, onClose }: ProductDetailContentProps) {
             className="font-serif font-black text-5xl md:text-7xl tracking-tight"
             style={{ color: textColor, opacity: 0.95 }}
           >
-            aangan<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
+            FORGE<span style={{ color: "#8B5A3C", opacity: 0.85 }}>.</span>
           </span>
         </div>
         {product.hero && (
