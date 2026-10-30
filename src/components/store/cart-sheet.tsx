@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 import { useCart } from "@/lib/cart-store";
+import { useAuth } from "@/lib/auth-store";
+import { useView } from "@/lib/view-store";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Sheet,
   SheetContent,
@@ -11,33 +14,82 @@ import {
   SheetDescription,
 } from "@/components/ui/sheet";
 import { useToast } from "@/hooks/use-toast";
-import { Trash2, Plus, Minus, ShoppingBag, ArrowRight } from "lucide-react";
+import { Trash2, Plus, Minus, ShoppingBag, ArrowRight, Loader2, CheckCircle2 } from "lucide-react";
 import { getColorwayClass, getTextColorway, getColorwayLabel } from "@/lib/products";
+import { createOrder, type OrderItem } from "@/lib/data-access";
 import { cn } from "@/lib/utils";
 
 export function CartSheet() {
   const cart = useCart();
+  const auth = useAuth();
+  const view = useView();
   const { toast } = useToast();
   const [checkoutStep, setCheckoutStep] = useState<"cart" | "success">("cart");
+  const [emailInput, setEmailInput] = useState("");
+  const [placing, setPlacing] = useState(false);
+  const [orderId, setOrderId] = useState<string | null>(null);
 
   const subtotal = cart.getSubtotal();
   const totalItems = cart.getTotalItems();
   const freeShippingThreshold = 5000;
   const shippingProgress = Math.min(100, (subtotal / freeShippingThreshold) * 100);
 
-  const handleCheckout = () => {
+  const handleCheckout = async () => {
     if (cart.items.length === 0) return;
-    // In a real store: redirect to payment gateway.
-    // Demo: mark success, clear cart behind the scenes.
-    setCheckoutStep("success");
-    cart.clearCart();
+
+    // If not logged in and no email entered, prompt
+    if (!auth.user && !emailInput) {
+      toast({
+        title: "Email required",
+        description: "Enter your email for guest checkout, or sign in for faster checkout.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setPlacing(true);
+
+    // Build order items
+    const orderItems: OrderItem[] = cart.items.map((item) => ({
+      product_id: item.product.id,
+      name: item.product.name,
+      size: item.size,
+      quantity: item.quantity,
+      price: item.product.price,
+      colorway: item.product.colorway,
+    }));
+
+    const email = auth.user?.email || emailInput;
+    const userId = auth.user?.id || null;
+
+    const { order, error } = await createOrder(orderItems, subtotal, email, userId);
+
+    setPlacing(false);
+
+    if (error) {
+      toast({
+        title: "Checkout failed",
+        description: error,
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (order) {
+      setOrderId(order.id);
+      setCheckoutStep("success");
+      cart.clearCart();
+    }
   };
 
   const handleClose = (open: boolean) => {
     cart.closeCart();
     if (!open) {
-      // Reset to cart step after a delay if success was shown
-      setTimeout(() => setCheckoutStep("cart"), 300);
+      setTimeout(() => {
+        setCheckoutStep("cart");
+        setEmailInput("");
+        setOrderId(null);
+      }, 300);
     }
   };
 
@@ -58,12 +110,14 @@ export function CartSheet() {
                 {totalItems} {totalItems === 1 ? "item" : "items"}
               </SheetDescription>
             </div>
-            <button
-              onClick={() => cart.clearCart()}
-              className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#6E6258] hover:text-[#8B5A3C] transition-colors"
-            >
-              Clear
-            </button>
+            {cart.items.length > 0 && (
+              <button
+                onClick={() => cart.clearCart()}
+                className="text-[10px] font-semibold uppercase tracking-[0.14em] text-[#6E6258] hover:text-[#8B5A3C] transition-colors"
+              >
+                Clear
+              </button>
+            )}
           </div>
         </SheetHeader>
 
@@ -71,21 +125,41 @@ export function CartSheet() {
           // Success state
           <div className="flex-1 flex flex-col items-center justify-center p-8 text-center">
             <div className="h-16 w-16 rounded-full bg-[#6B7A4F] flex items-center justify-center mb-4">
-              <ShoppingBag className="h-7 w-7 text-[#FAF7F2]" />
+              <CheckCircle2 className="h-8 w-8 text-[#FAF7F2]" />
             </div>
             <h3 className="font-serif text-2xl font-bold text-[#1A1614] mb-2">
               Order placed.
             </h3>
-            <p className="text-sm text-[#6E6258] mb-6 max-w-xs">
-              Your order is confirmed (demo). In a real checkout, you would receive
-              an email with tracking and an ETA in 3–5 business days.
+            <p className="text-sm text-[#6E6258] mb-2 max-w-xs">
+              {auth.user
+                ? "Your order is saved to your account. You'll receive an email with tracking within 24 hours."
+                : "Your order is confirmed. You'll receive an email with tracking within 24 hours."}
             </p>
-            <Button
-              onClick={() => handleClose(false)}
-              className="bg-[#1A1614] text-[#FAF7F2] hover:bg-[#8B5A3C] rounded-none px-8"
-            >
-              Continue shopping
-            </Button>
+            {orderId && (
+              <p className="text-[10px] text-[#6E6258] font-mono mb-6">
+                Order #{orderId.slice(0, 8).toUpperCase()}
+              </p>
+            )}
+            <div className="flex flex-col gap-2 w-full max-w-xs">
+              {auth.user && (
+                <Button
+                  onClick={() => {
+                    handleClose(false);
+                    view.goAccount();
+                  }}
+                  className="bg-[#1A1614] text-[#FAF7F2] hover:bg-[#8B5A3C] rounded-none"
+                >
+                  View order history
+                </Button>
+              )}
+              <Button
+                onClick={() => handleClose(false)}
+                variant="outline"
+                className="border-[#1A1614] text-[#1A1614] hover:bg-[#F2EDE4] rounded-none"
+              >
+                Continue shopping
+              </Button>
+            </div>
           </div>
         ) : cart.items.length === 0 ? (
           // Empty state
@@ -97,7 +171,7 @@ export function CartSheet() {
               Your bag is empty.
             </h3>
             <p className="text-sm text-[#6E6258] mb-6 max-w-xs">
-              Browse the catalog and pick a piece you'd re-wear on an ordinary Tuesday.
+              Browse the catalog and pick a piece you&apos;d re-wear on an ordinary Tuesday.
             </p>
             <Button
               onClick={() => handleClose(false)}
@@ -121,7 +195,7 @@ export function CartSheet() {
                 </p>
               ) : (
                 <p className="text-[11px] text-[#6B7A4F] font-semibold mb-1.5">
-                  ✓ You've unlocked free shipping!
+                  ✓ You&apos;ve unlocked free shipping!
                 </p>
               )}
               <div className="h-1 w-full bg-[#C9BBA3] rounded-full overflow-hidden">
@@ -144,7 +218,6 @@ export function CartSheet() {
                     key={item.key}
                     className="flex gap-3 pb-4 border-b border-[#C9BBA3] last:border-0"
                   >
-                    {/* Mini color block */}
                     <div
                       className={cn(
                         "relative h-24 w-20 flex-shrink-0 overflow-hidden",
@@ -161,7 +234,6 @@ export function CartSheet() {
                       </div>
                     </div>
 
-                    {/* Info */}
                     <div className="flex-1 min-w-0 flex flex-col">
                       <div className="flex items-start justify-between gap-2">
                         <div>
@@ -181,13 +253,10 @@ export function CartSheet() {
                         </button>
                       </div>
 
-                      {/* Qty stepper + price */}
                       <div className="mt-auto flex items-center justify-between pt-2">
                         <div className="inline-flex items-center border border-[#C9BBA3]">
                           <button
-                            onClick={() =>
-                              cart.updateQuantity(item.key, item.quantity - 1)
-                            }
+                            onClick={() => cart.updateQuantity(item.key, item.quantity - 1)}
                             className="h-7 w-7 flex items-center justify-center text-[#1A1614] hover:bg-[#F2EDE4]"
                             aria-label="Decrease quantity"
                           >
@@ -197,9 +266,7 @@ export function CartSheet() {
                             {item.quantity}
                           </span>
                           <button
-                            onClick={() =>
-                              cart.updateQuantity(item.key, item.quantity + 1)
-                            }
+                            onClick={() => cart.updateQuantity(item.key, item.quantity + 1)}
                             className="h-7 w-7 flex items-center justify-center text-[#1A1614] hover:bg-[#F2EDE4]"
                             aria-label="Increase quantity"
                           >
@@ -216,8 +283,27 @@ export function CartSheet() {
               })}
             </div>
 
-            {/* Footer */}
+            {/* Footer with optional guest email + checkout */}
             <div className="border-t border-[#C9BBA3] p-6 space-y-4 bg-[#FAF7F2]">
+              {/* Guest email field if not logged in */}
+              {!auth.user && (
+                <div className="space-y-1.5">
+                  <label className="brand-eyebrow text-[#6E6258] block">
+                    Email for order confirmation
+                  </label>
+                  <Input
+                    type="email"
+                    value={emailInput}
+                    onChange={(e) => setEmailInput(e.target.value)}
+                    placeholder="you@email.com"
+                    className="h-10 bg-[#FAF7F2] border-[#C9BBA3] text-[#1A1614] placeholder:text-[#6E6258] text-sm rounded-none focus-visible:ring-[#8B5A3C]"
+                  />
+                  <p className="text-[10px] text-[#6E6258]">
+                    Or sign in for faster checkout and order history.
+                  </p>
+                </div>
+              )}
+
               {/* Subtotal */}
               <div className="flex items-baseline justify-between">
                 <span className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6E6258]">
@@ -228,18 +314,27 @@ export function CartSheet() {
                 </span>
               </div>
               <p className="text-[10px] text-[#6E6258]">
-                Shipping and taxes calculated at checkout. Free shipping on orders
-                over PKR 5,000.
+                Shipping and taxes calculated at checkout. Free shipping on orders over PKR 5,000.
               </p>
 
               {/* Checkout button */}
               <Button
                 onClick={handleCheckout}
                 size="lg"
+                disabled={placing}
                 className="w-full bg-[#1A1614] text-[#FAF7F2] hover:bg-[#8B5A3C] rounded-none h-12 gap-2 group"
               >
-                Checkout
-                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                {placing ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    Placing order...
+                  </>
+                ) : (
+                  <>
+                    Checkout
+                    <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  </>
+                )}
               </Button>
             </div>
           </>

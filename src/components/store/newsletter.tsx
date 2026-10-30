@@ -4,18 +4,32 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Loader2 } from "lucide-react";
+import { subscribeToNewsletter } from "@/lib/data-access";
 
 export function Newsletter() {
   const { toast } = useToast();
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
 
-    // In a real app: POST to /api/newsletter
+    setSubmitting(true);
+    const { error } = await subscribeToNewsletter(email);
+    setSubmitting(false);
+
+    if (error) {
+      toast({
+        title: "Subscription failed",
+        description: error,
+        variant: "destructive",
+      });
+      return;
+    }
+
     setSubmitted(true);
     toast({
       title: "Subscribed.",
@@ -54,10 +68,19 @@ export function Newsletter() {
           <Button
             type="submit"
             size="lg"
+            disabled={submitting}
             className="h-12 bg-[#1A1614] text-[#FAF7F2] hover:bg-[#8B5A3C] rounded-none px-6 gap-2 group"
           >
-            {submitted ? "Subscribed ✓" : "Subscribe"}
-            {!submitted && <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />}
+            {submitting ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : submitted ? (
+              "Subscribed ✓"
+            ) : (
+              <>
+                Subscribe
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </>
+            )}
           </Button>
         </form>
 

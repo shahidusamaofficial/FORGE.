@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { SiteHeader } from "@/components/store/site-header";
 import { Hero } from "@/components/store/hero";
 import { FeaturedCollection } from "@/components/store/featured-collection";
@@ -11,6 +11,9 @@ import { CartSheet } from "@/components/store/cart-sheet";
 import { AboutSection } from "@/components/store/about-section";
 import { Newsletter } from "@/components/store/newsletter";
 import { SiteFooter } from "@/components/store/site-footer";
+import { AccountView } from "@/components/store/account-view";
+import { useView } from "@/lib/view-store";
+import { useAuth } from "@/lib/auth-store";
 import type { Product, ProductCategory } from "@/lib/products";
 
 export default function Home() {
@@ -20,6 +23,14 @@ export default function Home() {
     ProductCategory | "all"
   >("all");
 
+  const view = useView();
+  const auth = useAuth();
+
+  // Initialize auth on mount
+  useEffect(() => {
+    auth.initialize();
+  }, []);
+
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
     setDialogOpen(true);
@@ -27,13 +38,13 @@ export default function Home() {
 
   const handleSelectCategory = (id: ProductCategory) => {
     setShopInitialCategory(id);
-    // Smooth-scroll to shop after a tick
+    view.goHome();
     setTimeout(() => {
       const el = document.getElementById("shop");
       if (el) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
-    }, 50);
+    }, 100);
   };
 
   return (
@@ -41,16 +52,22 @@ export default function Home() {
       <SiteHeader />
 
       <main className="app-main">
-        <Hero />
-        <FeaturedCollection onProductClick={handleProductClick} />
-        <CategorySection onSelectCategory={handleSelectCategory} />
-        <ShopSection
-          key={shopInitialCategory}
-          onProductClick={handleProductClick}
-          initialCategory={shopInitialCategory}
-        />
-        <AboutSection />
-        <Newsletter />
+        {view.currentView === "account" ? (
+          <AccountView />
+        ) : (
+          <>
+            <Hero />
+            <FeaturedCollection onProductClick={handleProductClick} />
+            <CategorySection onSelectCategory={handleSelectCategory} />
+            <ShopSection
+              key={shopInitialCategory}
+              onProductClick={handleProductClick}
+              initialCategory={shopInitialCategory}
+            />
+            <AboutSection />
+            <Newsletter />
+          </>
+        )}
       </main>
 
       <SiteFooter />
